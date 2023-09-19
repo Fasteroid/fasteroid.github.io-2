@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "Node",
+		"esModuleInterop": true,
+		"jsx": "preserve",
+		"jsxFactory": "preact.h",
+		"jsxFragmentFactory": "preact.Fragment",
+		"noEmit": true,
+		"allowJs": true,
+		"checkJs": true,
+		"skipLibCheck": true,
+		"baseUrl": "./",
+		"paths": {
+			"react": ["./node_modules/preact/compat"],
+			"react-dom": ["./node_modules/preact/compat"]
+		}
+	},
+	"include": ["node_modules/preact-cli/types.d.ts", "src/**/*"]
+}
