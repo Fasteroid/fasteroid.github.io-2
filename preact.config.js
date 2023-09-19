@@ -8,5 +8,5 @@
  * @param {import('preact-cli').Helpers} helpers - object with useful helpers for working with the webpack config
  */
 export default (config, env, helpers) => {
-	/** you can change the config here **/
+	config.output.publicPath = "/react-portfolio/"
 };
