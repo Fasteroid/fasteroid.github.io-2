@@ -544,6 +544,14 @@ var match = __webpack_require__(927);
 ;// CONCATENATED MODULE: ./components/header/style.module.css
 // extracted by mini-css-extract-plugin
 /* harmony default export */ const style_module = ({"header":"header__wTXVc","logo":"logo__W6bmZ","active":"active__SWT8b"});
+;// CONCATENATED MODULE: ./manifest.json
+const manifest_namespaceObject = JSON.parse('{"$Q":"/react-portfolio/"}');
+;// CONCATENATED MODULE: ./absPath.ts
+
+function absPath_link(oldPath) {
+  console.log(manifest_namespaceObject.$Q + oldPath);
+  return manifest_namespaceObject.$Q + oldPath;
+}
 // EXTERNAL MODULE: external "preact"
 var external_preact_ = __webpack_require__(210);
 ;// CONCATENATED MODULE: ../node_modules/preact/jsx-runtime/dist/jsxRuntime.mjs
@@ -581,6 +589,9 @@ function o(o, e, n, t, f, l) {
 
 
 
+// TODO: use tech from prerender to auto-populate this
+
+
 function Header() {
   return o("header", {
     class: style_module.header,
@@ -593,44 +604,35 @@ function Header() {
         height: "32",
         width: "32"
       }), o("h1", {
-        children: "Preact CLI"
+        children: ["Fast's Code Creations ", o("b", {
+          children: o("i", {
+            children: "2"
+          })
+        })]
       })]
     }), o("nav", {
-      children: [o(match/* Link */.rU, {
+      children: o(match/* Link */.rU, {
         activeClassName: style_module.active,
-        href: "/",
+        href: absPath_link(""),
         children: "Home"
-      }), o(match/* Link */.rU, {
-        activeClassName: style_module.active,
-        href: "/profile",
-        children: "Me"
-      }), o(match/* Link */.rU, {
-        activeClassName: style_module.active,
-        href: "/profile/john",
-        children: "John"
-      })]
+      })
     })]
   });
 }
-;// CONCATENATED MODULE: ./routes/home/style.module.css
+;// CONCATENATED MODULE: ./routes/style.module.css
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const home_style_module = ({"home":"home__D7j_x","resource":"resource__JKsxw"});
-;// CONCATENATED MODULE: ./routes/home/index.tsx
+/* harmony default export */ const routes_style_module = ({"home":"home__tpNym","resource":"resource__P7LUF"});
+;// CONCATENATED MODULE: ./routes/index.tsx
 
 
 
+const pageHeader = {
+  title: "Home"
+};
 function Home() {
   return o("div", {
-    class: home_style_module.home,
-    children: [o("a", {
-      href: "https://preactjs.com",
-      children: o("img", {
-        src: "../../assets/preact-logo.svg",
-        alt: "Preact Logo",
-        height: "160",
-        width: "160"
-      })
-    }), o("h1", {
+    class: routes_style_module.home,
+    children: [o("h1", {
       children: "Get Started Building PWAs with Preact-CLI"
     }), o("section", {
       children: [o(Resource, {
@@ -652,234 +654,11 @@ function Home() {
 function Resource(props) {
   return o("a", {
     href: props.link,
-    class: home_style_module.resource,
+    class: routes_style_module.resource,
     children: [o("h2", {
       children: props.title
     }), o("p", {
       children: props.description
-    })]
-  });
-}
-;// CONCATENATED MODULE: ../node_modules/preact/hooks/dist/hooks.mjs
-
-var t,
-  r,
-  u,
-  i,
-  hooks_o = 0,
-  f = [],
-  c = [],
-  e = external_preact_.options.__b,
-  a = external_preact_.options.__r,
-  v = external_preact_.options.diffed,
-  l = external_preact_.options.__c,
-  m = external_preact_.options.unmount;
-function d(t, u) {
-  external_preact_.options.__h && external_preact_.options.__h(r, t, hooks_o || u), hooks_o = 0;
-  var i = r.__H || (r.__H = {
-    __: [],
-    __h: []
-  });
-  return t >= i.__.length && i.__.push({
-    __V: c
-  }), i.__[t];
-}
-function h(n) {
-  return hooks_o = 1, s(B, n);
-}
-function s(n, u, i) {
-  var o = d(t++, 2);
-  if (o.t = n, !o.__c && (o.__ = [i ? i(u) : B(void 0, u), function (n) {
-    var t = o.__N ? o.__N[0] : o.__[0],
-      r = o.t(t, n);
-    t !== r && (o.__N = [r, o.__[1]], o.__c.setState({}));
-  }], o.__c = r, !r.u)) {
-    var f = function (n, t, r) {
-      if (!o.__c.__H) return !0;
-      var u = o.__c.__H.__.filter(function (n) {
-        return n.__c;
-      });
-      if (u.every(function (n) {
-        return !n.__N;
-      })) return !c || c.call(this, n, t, r);
-      var i = !1;
-      return u.forEach(function (n) {
-        if (n.__N) {
-          var t = n.__[0];
-          n.__ = n.__N, n.__N = void 0, t !== n.__[0] && (i = !0);
-        }
-      }), !(!i && o.__c.props === n) && (!c || c.call(this, n, t, r));
-    };
-    r.u = !0;
-    var c = r.shouldComponentUpdate,
-      e = r.componentWillUpdate;
-    r.componentWillUpdate = function (n, t, r) {
-      if (this.__e) {
-        var u = c;
-        c = void 0, f(n, t, r), c = u;
-      }
-      e && e.call(this, n, t, r);
-    }, r.shouldComponentUpdate = f;
-  }
-  return o.__N || o.__;
-}
-function p(u, i) {
-  var o = d(t++, 3);
-  !external_preact_.options.__s && z(o.__H, i) && (o.__ = u, o.i = i, r.__H.__h.push(o));
-}
-function y(u, i) {
-  var o = d(t++, 4);
-  !n.__s && z(o.__H, i) && (o.__ = u, o.i = i, r.__h.push(o));
-}
-function hooks_(n) {
-  return hooks_o = 5, F(function () {
-    return {
-      current: n
-    };
-  }, []);
-}
-function A(n, t, r) {
-  hooks_o = 6, y(function () {
-    return "function" == typeof n ? (n(t()), function () {
-      return n(null);
-    }) : n ? (n.current = t(), function () {
-      return n.current = null;
-    }) : void 0;
-  }, null == r ? r : r.concat(n));
-}
-function F(n, r) {
-  var u = d(t++, 7);
-  return z(u.__H, r) ? (u.__V = n(), u.i = r, u.__h = n, u.__V) : u.__;
-}
-function T(n, t) {
-  return hooks_o = 8, F(function () {
-    return n;
-  }, t);
-}
-function q(n) {
-  var u = r.context[n.__c],
-    i = d(t++, 9);
-  return i.c = n, u ? (null == i.__ && (i.__ = !0, u.sub(r)), u.props.value) : n.__;
-}
-function x(t, r) {
-  n.useDebugValue && n.useDebugValue(r ? r(t) : t);
-}
-function P(n) {
-  var u = d(t++, 10),
-    i = h();
-  return u.__ = n, r.componentDidCatch || (r.componentDidCatch = function (n, t) {
-    u.__ && u.__(n, t), i[1](n);
-  }), [i[0], function () {
-    i[1](void 0);
-  }];
-}
-function V() {
-  var n = d(t++, 11);
-  if (!n.__) {
-    for (var u = r.__v; null !== u && !u.__m && null !== u.__;) u = u.__;
-    var i = u.__m || (u.__m = [0, 0]);
-    n.__ = "P" + i[0] + "-" + i[1]++;
-  }
-  return n.__;
-}
-function b() {
-  for (var t; t = f.shift();) if (t.__P && t.__H) try {
-    t.__H.__h.forEach(k), t.__H.__h.forEach(w), t.__H.__h = [];
-  } catch (r) {
-    t.__H.__h = [], external_preact_.options.__e(r, t.__v);
-  }
-}
-external_preact_.options.__b = function (n) {
-  r = null, e && e(n);
-}, external_preact_.options.__r = function (n) {
-  a && a(n), t = 0;
-  var i = (r = n.__c).__H;
-  i && (u === r ? (i.__h = [], r.__h = [], i.__.forEach(function (n) {
-    n.__N && (n.__ = n.__N), n.__V = c, n.__N = n.i = void 0;
-  })) : (i.__h.forEach(k), i.__h.forEach(w), i.__h = [], t = 0)), u = r;
-}, external_preact_.options.diffed = function (t) {
-  v && v(t);
-  var o = t.__c;
-  o && o.__H && (o.__H.__h.length && (1 !== f.push(o) && i === external_preact_.options.requestAnimationFrame || ((i = external_preact_.options.requestAnimationFrame) || j)(b)), o.__H.__.forEach(function (n) {
-    n.i && (n.__H = n.i), n.__V !== c && (n.__ = n.__V), n.i = void 0, n.__V = c;
-  })), u = r = null;
-}, external_preact_.options.__c = function (t, r) {
-  r.some(function (t) {
-    try {
-      t.__h.forEach(k), t.__h = t.__h.filter(function (n) {
-        return !n.__ || w(n);
-      });
-    } catch (u) {
-      r.some(function (n) {
-        n.__h && (n.__h = []);
-      }), r = [], external_preact_.options.__e(u, t.__v);
-    }
-  }), l && l(t, r);
-}, external_preact_.options.unmount = function (t) {
-  m && m(t);
-  var r,
-    u = t.__c;
-  u && u.__H && (u.__H.__.forEach(function (n) {
-    try {
-      k(n);
-    } catch (n) {
-      r = n;
-    }
-  }), u.__H = void 0, r && external_preact_.options.__e(r, u.__v));
-};
-var g = "function" == typeof requestAnimationFrame;
-function j(n) {
-  var t,
-    r = function () {
-      clearTimeout(u), g && cancelAnimationFrame(t), setTimeout(n);
-    },
-    u = setTimeout(r, 100);
-  g && (t = requestAnimationFrame(r));
-}
-function k(n) {
-  var t = r,
-    u = n.__c;
-  "function" == typeof u && (n.__c = void 0, u()), r = t;
-}
-function w(n) {
-  var t = r;
-  n.__c = n.__(), r = t;
-}
-function z(n, t) {
-  return !n || n.length !== t.length || t.some(function (t, r) {
-    return t !== n[r];
-  });
-}
-function B(n, t) {
-  return "function" == typeof t ? t(n) : t;
-}
-
-;// CONCATENATED MODULE: ./routes/profile/index.tsx
-
-
-
-// Note: `user` comes from the URL, courtesy of our router
-function Profile({
-  user
-}) {
-  const [time, setTime] = h(Date.now());
-  const [count, setCount] = h(10);
-  p(() => {
-    let timer = setInterval(() => setTime(Date.now()), 1000);
-    return () => clearInterval(timer);
-  }, []);
-  return o("div", {
-    children: [o("h1", {
-      children: ["Profile: ", user]
-    }), o("p", {
-      children: ["This is the user profile for a user named ", user, "."]
-    }), o("div", {
-      children: ["Current time: ", new Date(time).toLocaleString()]
-    }), o("p", {
-      children: [o("button", {
-        onClick: () => setCount(count => count + 1),
-        children: "Click Me"
-      }), ' ', "Clicked ", count, " times."]
     })]
   });
 }
@@ -895,23 +674,18 @@ function Profile({
 
 
 
+// TODO: use tech from prerender to auto-populate this
+
 
 function App() {
   return o("div", {
     id: "app",
     children: [o(Header, {}), o("main", {
       children: o(preact_router_es.Router, {
-        children: [o(preact_router_es.Route, {
-          path: "/",
+        children: o(preact_router_es.Route, {
+          path: absPath_link(""),
           component: Home
-        }), o(preact_router_es.Route, {
-          path: "/profile/",
-          component: Profile,
-          user: "me"
-        }), o(preact_router_es.Route, {
-          path: "/profile/:user",
-          component: Profile
-        })]
+        })
       })
     })]
   });
