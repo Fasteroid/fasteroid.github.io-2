@@ -2,12 +2,11 @@
 	"private": true,
 	"scripts": {
 
-		"build": "preact build --prerenderUrls ./preact.prerender.js",
-		"serve": "sirv build --cors --single --prerenderUrls ./preact.prerender.js",
+		"build": "preact build --prerenderUrls ./preact.prerender.js --dest react-portfolio",
 		"predeploy": "npm run build",
-		"deploy": "gh-pages -d build",
+		"deploy": "gh-pages -d react-portfolio",
 
-		"dev": "preact watch",
+		"dev": "preact watch --prerenderUrls ./preact.prerender.js",
 		"lint": "eslint src",
 		"test": "jest"
 
